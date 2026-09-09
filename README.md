@@ -1,35 +1,44 @@
-# Inferential-Statistical-Analysis-of-Diabetes-Data
+# Inferential Statistical Analysis of Diabetes Data
 
-Introduction:
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
+![SciPy](https://img.shields.io/badge/SciPy-8CAAE6?logo=scipy&logoColor=white)
+![seaborn](https://img.shields.io/badge/seaborn-4C72B0)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white)
 
-Inferential statistics and hypothesis testing is still used extensively in biomedical 
-engineering  and  its  subfields,  as  it  helps  explain  observed  phenomena  instead  of  simply 
-summarizing it as with descriptive statistics. In particular, in diagnostics, scientists can learn what 
-signs accompany or indicate a given disease. In this dataset, anonymized medical data for a number 
-of people with and without diabetes are provided and we will analyze if differences in these features 
-between the two groups is statistically significant (i.e., if it could be used for diagnosis of type 2 
-diabetes).  In  order  to  reduce  the  need  for  standardization  of  background,  all  participants  here 
-identify as female, are at least 21 years old, and identify as being of Pima Indian heritage.
+A hypothesis-testing study that asks which clinical measurements differ **significantly** between people with and without type-2 diabetes — i.e., which features could serve as diagnostic signals rather than just descriptive summaries.
 
-Discipline Specific Information: 
+## Motivation
 
-The data set contains the following information: 
-  
-Pregnancies:  Number of times a participant has been pregnant. 
+Inferential statistics is used extensively in biomedical research to *explain* observed phenomena rather than merely summarize them. In diagnostics, this reveals which signs accompany or indicate a disease. This project tests whether feature differences between diabetic and non-diabetic groups are statistically significant enough to support diagnosis of type-2 diabetes.
 
-Glucose:  Glucose level of a patient in mg/dL. 
+## Dataset
 
-BloodPressure:  Blood pressure of a participant in units of mm Hg. 
+The **Pima Indians Diabetes** dataset — **768 participants, 9 features**. To reduce confounds, all participants are female, at least 21 years old, and of Pima Indian heritage.
 
-SkinThickness:  The thickness of a participants skin measure at the triceps, in units of mm. 
+| Feature | Meaning |
+|---------|---------|
+| Pregnancies | Number of times pregnant |
+| Glucose | Plasma glucose (mg/dL) |
+| BloodPressure | Diastolic blood pressure (mm Hg) |
+| SkinThickness | Triceps skin-fold thickness (mm) |
+| Insulin | Serum insulin (µU/mL) |
+| BMI | Body-mass index (kg/m²) |
+| DiabetesPedigree | Genetic diabetes-history score |
+| Age | Age (years) |
+| Outcome | 1 = diabetic, 0 = non-diabetic |
 
-Insulin:  Insulin level in uU/mL. 
+## What the analysis does
 
-BMI:  Body mass index of a participant (weight/height2) in units of kg/m2. 
+- **Data cleaning** — physiologically impossible zero values (e.g., zero glucose or blood pressure) are treated as missing and imputed with the feature median, which restores approximately normal distributions.
+- **Exploratory analysis** — several features (glucose, blood pressure, skin thickness, insulin, BMI) show bimodal distributions, examined via pair plots and histograms.
+- **Inferential testing** — statistical tests compare the diabetic and non-diabetic groups feature by feature to determine which differences are significant.
 
-DiabetesPedigree:  A value indicating diabetes history in your relatives based on genetics. 
+## Repository contents
 
-Age:  Age of a participant in years. 
+| File | Description |
+|------|-------------|
+| `Python_Code.ipynb` | Full cleaning, EDA, and hypothesis-testing workflow |
 
-Outcome:  1 indicates the participant has diabetes, 0 indicates they do not have diabetes. 
- 
+## Tech stack
+
+Python · pandas · NumPy · SciPy (`scipy.stats`) · seaborn · matplotlib
